@@ -6,12 +6,18 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Colors } from "../../styles/theme";
 import { useUIContext } from "../../context/ui";
 import { Badge } from "@mui/icons-material";
+import {useNavigate} from "react-router";
 
 export default function Actions({ matches }) {
-
   const { cart, setShowCart} = useUIContext;
+  const navigation = useNavigate()
 
   const Component = matches ? ActionIconsContainerMobile : ActionIconsContainerDesktop;
+
+  const handleLogout = () => {
+      localStorage.removeItem('user')
+      navigation('/auth')
+  }
 
   return (
     <Component>
@@ -65,6 +71,11 @@ export default function Actions({ matches }) {
             <PersonIcon />
           </ListItemIcon>
         </ListItemButton>
+          <Divider orientation="vertical" flexItem />
+
+          <ListItemButton onClick={handleLogout}>
+              Log out
+          </ListItemButton>
         <Divider orientation="vertical" flexItem />
       </MyList>
     </Component>

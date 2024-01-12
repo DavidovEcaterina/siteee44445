@@ -13,36 +13,46 @@ import Promotions from "./components/promotions";
 import SearchBox from "./components/search";
 import { useEffect } from "react";
 import Cart from "./components/cart";
+import {useNavigate} from "react-router";
+
 
 function App() {
   useEffect(() => {
     document.title = "React Material UI - Home";
   }, []);
+  const navigation = useNavigate()
+  useEffect(() => {
+    const token = localStorage.getItem('user')
+    if(!token) {
+      navigation('/auth')
+    }
+  }, []);
+
   return (
-    <ThemeProvider theme={theme}>
-      <Container
-        disableGutters
-        maxWidth="xl"
-        sx={{
-          background: "#fff",
-        }}
-      >
-        <Stack>
-          <UIProvider>
-            <Appbar />
-            <Banner />
-            <Promotions />
-            <SearchBox />
-            <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
-              <Typography variant="h4">Our Products</Typography>
-            </Box>
-            <Products />
-            <Footer />
-            <AppDrawer />
-          </UIProvider>
-        </Stack>
-      </Container>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Container
+            disableGutters
+            maxWidth="xl"
+            sx={{
+              background: "#fff",
+            }}
+        >
+          <Stack>
+            <UIProvider>
+              <Appbar />
+              <Banner />
+              <Promotions />
+              <SearchBox />
+              <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
+                <Typography variant="h4">Our Products</Typography>
+              </Box>
+              <Products />
+              <Footer />
+              <AppDrawer />
+            </UIProvider>
+          </Stack>
+        </Container>
+      </ThemeProvider>
   );
 }
 

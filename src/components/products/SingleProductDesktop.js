@@ -17,6 +17,7 @@ import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
 import ProductMeta from "./ProductMeta";
 import useCart from "../../hooks/useCart";
+import {products} from "../../data";
 
 export default function SingleProductDesktop({ product, matches }) {
   const [showOptions, setShowOptions] = useState(false);
@@ -34,6 +35,7 @@ export default function SingleProductDesktop({ product, matches }) {
   const handleMouseLeave = () => {
     setShowOptions(false);
   };
+
   return (
     <>
     <Product onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

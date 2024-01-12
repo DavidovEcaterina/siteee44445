@@ -71,14 +71,11 @@ export default function ProductDetail({ open, onClose, product }) {
             <ProductImage src={product.image} />
           </Product>
           <ProductDetailInfoWrapper>
-            <Typography variant="subtitle">SKU: 123</Typography>
-            <Typography variant="subtitle">Availability: 5 in stock</Typography>
+            <Typography variant="subtitle">Availability: {product.stockQuantity} in stock</Typography>
             <Typography sx={{ lineHeight: 2 }} variant="h4">
               {product.name}
             </Typography>
             <Typography variant="body">
-              {product.description}
-              {product.description}
               {product.description}
             </Typography>
             <Box

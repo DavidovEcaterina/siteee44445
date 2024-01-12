@@ -16,6 +16,7 @@ import FitScreenIcon from "@mui/icons-material/FitScreen";
 import useDialogModal from "../../hooks/useDialogModal";
 import ProductDetail from "../productdetail";
 import ProductMeta from "./ProductMeta";
+import {products} from "../../data";
 
 export default function SingleProduct({ product, matches }) {
   const [ProductDetailDialog, showProductDetailDialog, closeProductDialog] =
@@ -29,6 +30,8 @@ export default function SingleProduct({ product, matches }) {
   const handleMouseLeave = () => {
     setShowOptions(false);
   };
+
+
   return (
     <>
         <Product>
